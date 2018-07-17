@@ -1,12 +1,9 @@
-<div><span>id: </span>{{location.id}}</div>
-<div><span>city: </span>{{location.city }}</div>
-<div><span>state: </span>{{location.state}}</div>
+<h2>My Locations</h2>
+<ul class="locations">
+  <li *ngFor="let location of locations"
+    (click)="onSelect(location)">
+    <span class="badge">{{location.id}}</span> {{location.city}} {{location.state}}
+  </li>
+</ul>
 
-<div>
-  <label>city:
-    <input [(ngModel)]="location.city" placeholder="city">
-  </label>
-  <label>state:
-    <input [(ngModel)]="location.state" placeholder="state">
-  </label>
-</div>
+<app-location-detail [location]="selectedLocation"></app-location-detail>

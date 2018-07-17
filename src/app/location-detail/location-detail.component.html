@@ -1,0 +1,14 @@
+<div *ngIf="location">
+
+  <h2>{{location.city}} </h2>
+  <div><span>id: </span>{{location.id}}</div>
+  <div>
+    <label>city:
+      <input [(ngModel)]="location.city" placeholder="city">
+    </label>
+    <label>state:
+      <input [(ngModel)]="location.state" placeholder="state">
+    </label>
+  </div>
+
+</div>
