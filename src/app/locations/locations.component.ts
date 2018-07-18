@@ -37,9 +37,14 @@ export class LocationsComponent implements OnInit {
     let apiUrl = ``;
 
     let data = this.weatherService.getData(apiUrl).subscribe(data => {
-      return data;
+      debugger;
+      console.log(
+        data.data[0].city_name,
+        data.data[0].state_code,
+        data.data[0].temp,
+        "Celsius"
+      );
     });
-    debugger;
 
     city = city.trim();
     state = state.trim();
