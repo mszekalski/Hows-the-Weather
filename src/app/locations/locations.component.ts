@@ -12,7 +12,10 @@ import { WeatherService } from "../weather.service";
 export class LocationsComponent implements OnInit {
   selectedLocation: Location;
   locations: Location[];
-  data: any = {};
+  city: any;
+  state: any;
+  currentTemp: any;
+  description: any;
 
   constructor(
     private locationService: LocationService,
@@ -25,6 +28,17 @@ export class LocationsComponent implements OnInit {
 
   onSelect(location: Location): void {
     this.selectedLocation = location;
+
+    let apiUrl = `https://api.weatherbit.io/v2.0/current?key=183ce6c2f97a446bad51b08f47e8e763&city=${
+      this.selectedLocation.city
+    },${this.selectedLocation.state}`;
+
+    this.weatherService.getData(apiUrl).subscribe(data => {
+      this.city = data.data[0].city_name;
+      this.state = data.data[0].state_code;
+      this.currentTemp = data.data[0].temp;
+      this.description = data.data[0].weather.description;
+    });
   }
 
   getLocations(): void {
@@ -34,16 +48,14 @@ export class LocationsComponent implements OnInit {
   }
 
   add(city: string, state: string): void {
-    let apiUrl = ``;
+    let apiUrl = `https://api.weatherbit.io/v2.0/current?key=183ce6c2f97a446bad51b08f47e8e763&city=${city},${state}`;
 
-    let data = this.weatherService.getData(apiUrl).subscribe(data => {
-      debugger;
-      console.log(
-        data.data[0].city_name,
-        data.data[0].state_code,
-        data.data[0].temp,
-        "Celsius"
-      );
+    this.weatherService.getData(apiUrl).subscribe(data => {
+      this.currentTemp = data.data[0].temp;
+      this.city = data.data[0].city_name;
+      this.state = data.data[0].state_code;
+      this.currentTemp = data.data[0].temp;
+      this.description = data.data[0].weather.description;
     });
 
     city = city.trim();

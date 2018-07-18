@@ -23,11 +23,7 @@ export class InMemoryDataService implements InMemoryDbService {
         city: "New London",
         state: "CT"
       },
-      {
-        id: 5,
-        city: "Philadelphia",
-        state: "PA"
-      },
+
       {
         id: 6,
         city: "New Haven",
