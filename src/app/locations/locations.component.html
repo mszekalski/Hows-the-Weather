@@ -16,6 +16,8 @@
   <li *ngFor="let location of locations"
     (click)="onSelect(location)">
     <span class="badge">{{location.id}}</span> {{location.city}} {{location.state}}
+    <button class="delete" title="delete location"
+      (click)="delete(location)">x</button>
   </li>
 </ul>
 

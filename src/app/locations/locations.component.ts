@@ -41,6 +41,11 @@ export class LocationsComponent implements OnInit {
     });
   }
 
+  delete(location: location): void {
+    this.locations = this.locations.filter(h => h !== location);
+    this.locationService.deletelocation(location).subscribe();
+  }
+
   getLocations(): void {
     this.locationService
       .getLocations()
