@@ -13,7 +13,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from "./in-memory-data.service";
 import { HttpModule } from "@angular/http";
-// import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -31,7 +30,7 @@ import { HttpModule } from "@angular/http";
       dataEncapsulation: false
     })
   ],
-  providers: [AppComponent],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
