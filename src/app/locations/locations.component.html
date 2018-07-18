@@ -1,3 +1,16 @@
+<div>
+  <label>Location city:
+    <input #locationCity />
+  </label>
+  <label>Location state:
+    <input #locationState />
+  </label>
+
+  <button (click)="add(locationCity.value, locationState.value);locationCity.value=''; locationState.value=''">
+      add
+    </button>
+</div>
+
 <h2>My Locations</h2>
 <ul class="locations">
   <li *ngFor="let location of locations"
